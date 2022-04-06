@@ -250,7 +250,7 @@
         //---------------------------下拉选项样式，可在此处自定义-------------------------
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.selectionStyle  = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = self.optionBgColor;
+        cell.contentView.backgroundColor = self.optionBgColor;
         
         UILabel * titleLabel = [[UILabel alloc] init];
         titleLabel.font          = self.optionFont;
@@ -258,16 +258,16 @@
         titleLabel.numberOfLines = self.optionNumberOfLines;
         titleLabel.textAlignment = self.optionTextAlignment;
         titleLabel.tag           = 999;
-        [cell addSubview:titleLabel];
+        [cell.contentView addSubview:titleLabel];
         
         UIImageView * icon = [[UIImageView alloc] init];
         icon.tag = 888;
-        [cell addSubview:icon];
+        [cell.contentView addSubview:icon];
         
         UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.optionLineHeight)];
         line.backgroundColor = self.optionLineColor;
         line.tag             = 777;
-        [cell addSubview:line];
+        [cell.contentView addSubview:line];
         //---------------------------------------------------------------------------
     }
     CGFloat cHeight = [self.dataSource dropdownMenu:self heightForOptionAtIndex:indexPath.row];
